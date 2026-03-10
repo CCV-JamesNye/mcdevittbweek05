@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://mvq11dodyiiq"]
 
-[ext_resource type="Script" uid="uid://dvlbgcsvuflh4" path="res://Scenes/Player/Scripts/game_over.gd" id="1_oq8vb"]
+[ext_resource type="Script" uid="uid://dvlbgcsvuflh4" path="res://Scenes/Player/Scripts/back_to_menu.gd" id="1_oq8vb"]
 
 [node name="victory" type="CanvasLayer" unique_id=553463786]
 process_mode = 3
@@ -20,7 +20,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 300.0
 offset_bottom = 160.0
-color = Color(0.07058824, 0.03137255, 0, 0.50980395)
+color = Color(0.9512355, 0.63292235, 0, 0.50980395)
 
 [node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=381471711]
 layout_mode = 1
@@ -41,18 +41,24 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "You Win!"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Congratulations!!!"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1510865453]
 layout_mode = 2
 size_flags_vertical = 6
-text = "You have won the game!
-Congrats!"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "You made it past 
+the spikes!"
 horizontal_alignment = 1
 
 [node name="menubutton" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1720698815]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 text = "Main Menu"

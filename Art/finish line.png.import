@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0i5gx76ej4r"
-path="res://.godot/imported/grass.png-9801e7973022534a0c1ad521999a8446.ctex"
+uid="uid://723kg56j7oad"
+path="res://.godot/imported/finish line.png-2ca1d002cb7faa66d98eac4c61cf3304.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/grass.png"
-dest_files=["res://.godot/imported/grass.png-9801e7973022534a0c1ad521999a8446.ctex"]
+source_file="res://Art/finish line.png"
+dest_files=["res://.godot/imported/finish line.png-2ca1d002cb7faa66d98eac4c61cf3304.ctex"]
 
 [params]
 

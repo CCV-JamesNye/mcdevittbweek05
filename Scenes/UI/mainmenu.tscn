@@ -1,10 +1,29 @@
 [gd_scene format=3 uid="uid://dtr7jhg77p1dh"]
 
 [ext_resource type="Script" uid="uid://bt3gr4dodewfr" path="res://Scenes/UI/mainmenu.gd" id="1_5c06j"]
-[ext_resource type="Texture2D" uid="uid://bqe8gqtljejq5" path="res://Art/background.jpg" id="2_6olnl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_keiq2"]
-texture = ExtResource("2_6olnl")
+
+[sub_resource type="FontFile" id="FontFile_5c06j"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/27/0/ascent = 0.0
+cache/0/27/0/descent = 0.0
+cache/0/27/0/underline_position = 0.0
+cache/0/27/0/underline_thickness = 0.0
+cache/0/27/0/scale = 1.0
 
 [node name="Main Menu" type="Control" unique_id=1969483477]
 layout_mode = 3
@@ -22,7 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.06679914, 0.009101263, 0.08549691, 1)
+color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=252007292]
 layout_mode = 1
@@ -47,36 +66,54 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=249276776]
 layout_mode = 2
-theme_override_constants/separation = 4
 
 [node name="Title" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1154084787]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.08
+theme_override_colors/font_color = Color(0.09803922, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "My First Game"
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontFile_5c06j")
+theme_override_font_sizes/font_size = 27
+text = "Avoid the Spikes!"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1765664986]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.15674877, 1, 0.95153874, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Can you make it to the finish line?"
 
 [node name="StartButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=675965502]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.15674877, 1, 0.95153874, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 text = "Start Game"
+icon_alignment = 1
 
 [node name="QuitButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1747623775]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.15674877, 1, 0.95153874, 1)
+theme_override_constants/outline_size = 4
 text = "Quit Game"

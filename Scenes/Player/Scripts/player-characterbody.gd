@@ -7,6 +7,7 @@ var speed : float = 100
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var effect_player: AnimationPlayer = $EffectPlayer
 
+
 var is_charging_jump : bool = false 
 var charge_time : float = 0.0
 var max_charge_time : float = 0.5
@@ -15,7 +16,8 @@ var crouch_time := 0.12
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -60,6 +62,8 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = direction.normalized().x * speed
 	move_and_slide()
+
+
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# input
@@ -71,6 +75,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		is_charging_jump = true
 		charge_time = 0.0
 		animation_player.play("crouch")
+	
+		
 		
 	if event.is_action_released("jump") and is_charging_jump:
 		# release jump
@@ -81,6 +87,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		effect_player.stop()
 		animation_player.play("jump")
 		
+		
+		
 func die () -> void:
-	print ("player died")
-	get_tree().call_deferred('reload_current_scene')
+	await SceneTransition.fade_to_black()
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")

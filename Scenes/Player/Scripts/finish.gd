@@ -8,10 +8,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _check_for_win (body : Node2D) -> void:
 	if body.name == "player":
-		print ("player wins!")
+		await SceneTransition.fade_to_black()
+		get_tree().change_scene_to_file("res://Scenes/victory_screen.tscn")
 	

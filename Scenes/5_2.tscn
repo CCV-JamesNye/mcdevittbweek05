@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://bdjaxfep4qkuo"]
 
 [ext_resource type="Script" uid="uid://ol5p7gb4kwwy" path="res://Scenes/Player/Scripts/5_2.gd" id="1_ikgf8"]
-[ext_resource type="Texture2D" uid="uid://bqe8gqtljejq5" path="res://Art/background.jpg" id="2_3idxa"]
-[ext_resource type="Texture2D" uid="uid://d0i5gx76ej4r" path="res://Art/grass.png" id="3_kawbu"]
+[ext_resource type="Texture2D" uid="uid://bjlwknxas42ax" path="res://Art/qwop background.jpg" id="2_ikgf8"]
 [ext_resource type="Script" uid="uid://84pgdjpt8iny" path="res://Scenes/Player/Scripts/player-characterbody.gd" id="4_dxckq"]
+[ext_resource type="Texture2D" uid="uid://723kg56j7oad" path="res://Art/finish line.png" id="5_3idxa"]
+[ext_resource type="Script" uid="uid://7cwfcovirry6" path="res://Scenes/Player/Scripts/finish.gd" id="5_kawbu"]
 [ext_resource type="Texture2D" uid="uid://chil08u31bt7c" path="res://Art/Sprites/16x32/16x32 All Animations.png" id="5_st6jg"]
+[ext_resource type="Script" uid="uid://cnfmn28sh2yok" path="res://Scenes/Player/Scripts/kill_box.gd" id="7_kawbu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbdfx"]
-size = Vector2(320, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnp3v"]
-size = Vector2(16.000038, 26)
+size = Vector2(328, 14)
 
 [sub_resource type="Animation" id="Animation_bbdfx"]
 length = 0.001
@@ -146,43 +145,122 @@ _data = {
 &"charge_up": SubResource("Animation_h3p4w")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnp3v"]
+size = Vector2(11.999994, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kawbu"]
+size = Vector2(17, 185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxckq"]
+size = Vector2(3, 108)
+
 [node name="5-2" type="Node2D" unique_id=2013888550]
 script = ExtResource("1_ikgf8")
 
-[node name="mountains" type="Sprite2D" parent="." unique_id=1010624436]
+[node name="background" type="Sprite2D" parent="." unique_id=1010624436]
 texture_filter = 2
-position = Vector2(160.5, 90.5)
-scale = Vector2(0.069227435, 0.061086737)
-texture = ExtResource("2_3idxa")
-
-[node name="Grass" type="Sprite2D" parent="." unique_id=297921063]
-position = Vector2(160, 140.5)
-scale = Vector2(1.0457517, 1.3500001)
-texture = ExtResource("3_kawbu")
+position = Vector2(160.75, 90)
+scale = Vector2(0.38176468, 0.68248165)
+texture = ExtResource("2_ikgf8")
 
 [node name="floor" type="StaticBody2D" parent="." unique_id=966332674]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=1885302873]
-position = Vector2(159, 158)
+position = Vector2(163, 176)
 shape = SubResource("RectangleShape2D_bbdfx")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1846505198]
-position = Vector2(-116.00001, -7)
-scale = Vector2(1.5, 1.5)
+[node name="player" type="CharacterBody2D" parent="." unique_id=1846505198]
+position = Vector2(-167, 74)
 script = ExtResource("4_dxckq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=297148975]
-position = Vector2(176.00006, 81.66667)
-shape = SubResource("RectangleShape2D_nnp3v")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1510161516]
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1510161516]
 position = Vector2(176, 78)
 texture = ExtResource("5_st6jg")
 hframes = 10
 vframes = 10
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=381006527]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player" unique_id=381006527]
 libraries/ = SubResource("AnimationLibrary_7udvr")
 
-[node name="EffectPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1029384784]
+[node name="EffectPlayer" type="AnimationPlayer" parent="player" unique_id=1029384784]
 libraries/ = SubResource("AnimationLibrary_fr6x1")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="player" unique_id=297148975]
+position = Vector2(176, 81.66667)
+shape = SubResource("RectangleShape2D_nnp3v")
+
+[node name="Death" type="StaticBody2D" parent="." unique_id=283348788]
+position = Vector2(-98, 91)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death" unique_id=69195638]
+position = Vector2(89.5, -0.5)
+shape = SubResource("RectangleShape2D_kawbu")
+
+[node name="StaticBody2D" type="Area2D" parent="." unique_id=899195980]
+position = Vector2(204, 69)
+script = ExtResource("5_kawbu")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=346638737]
+position = Vector2(68.57205, 12.809093)
+rotation = 0.6719518
+scale = Vector2(0.6308376, 0.43518713)
+texture = ExtResource("5_3idxa")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1804183697]
+position = Vector2(105.5, 53)
+shape = SubResource("RectangleShape2D_dxckq")
+
+[node name="Spikes" type="StaticBody2D" parent="." unique_id=1467606159]
+position = Vector2(95, 141)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spikes" unique_id=792702675]
+polygon = PackedVector2Array(-28, 28, -21, 19, -14, 28)
+
+[node name="Polygon2D" type="Polygon2D" parent="Spikes" unique_id=1782997873]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-28, 28, -21, 19, -14, 28)
+
+[node name="Area2D" type="Area2D" parent="Spikes" unique_id=537741181]
+script = ExtResource("7_kawbu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spikes/Area2D" unique_id=1846434066]
+position = Vector2(1.4999954, -0.6395817)
+scale = Vector2(1.0714283, 1.0208333)
+polygon = PackedVector2Array(-28, 28, -21, 19, -14, 28)
+
+[node name="Spikes2" type="StaticBody2D" parent="." unique_id=423427614]
+position = Vector2(181, 141)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spikes2" unique_id=2074273383]
+polygon = PackedVector2Array(-28, 28, -21, 19, -14, 28)
+
+[node name="Polygon2D" type="Polygon2D" parent="Spikes2" unique_id=1302276077]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-28, 28, -21, 19, -14, 28)
+
+[node name="Area2D" type="Area2D" parent="Spikes2" unique_id=917032003]
+script = ExtResource("7_kawbu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spikes2/Area2D" unique_id=109079263]
+position = Vector2(1.4999954, -0.6395817)
+scale = Vector2(1.0714283, 1.0208333)
+polygon = PackedVector2Array(-28, 28, -21, 19, -14, 28)
+
+[node name="Spikes3" type="StaticBody2D" parent="." unique_id=1762413175]
+position = Vector2(269, 141)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spikes3" unique_id=1179741231]
+polygon = PackedVector2Array(-28, 28, -21, 19, -14, 28)
+
+[node name="Polygon2D" type="Polygon2D" parent="Spikes3" unique_id=1821528497]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-28, 28, -21, 19, -14, 28)
+
+[node name="Area2D" type="Area2D" parent="Spikes3" unique_id=280689423]
+script = ExtResource("7_kawbu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spikes3/Area2D" unique_id=1896953740]
+position = Vector2(1.4999954, -0.6395817)
+scale = Vector2(1.0714283, 1.0208333)
+polygon = PackedVector2Array(-28, 28, -21, 19, -14, 28)
